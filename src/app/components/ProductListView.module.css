@@ -1,0 +1,275 @@
+/* Main Wrapper Setup */
+/* Container jo poore area ko block level par handle karega */
+.mainWrapper {
+  width: 920px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* Part 1: Top Bar */
+.topBar {
+  width: 920px;
+  height: 62px;
+  background: #ffffff;
+  border: 1px solid #dee2e7;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.itemCount {
+  font-size: 16px;
+  color: #1c1c1c;
+}
+
+.boldText {
+  font-weight: 600;
+}
+
+.topBarActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.verifiedLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  color: #1c1c1c;
+  cursor: pointer;
+}
+
+.checkboxInput {
+  width: 20px;
+  height: 20px;
+  accent-color: #0d7aff;
+}
+
+.sortSelect {
+  width: 125px;
+  height: 40px;
+  border: 1px solid #dee2e7;
+  border-radius: 6px;
+  padding: 0 10px;
+  font-size: 16px;
+  color: #1c1c1c;
+  background-color: #fff;
+}
+
+.viewToggleGroup {
+  display: flex;
+  border: 1px solid #dee2e7;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.gridBtn, .listBtn {
+  width: 40px;
+  height: 40px;
+  background: #ffffff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #1c1c1c;
+}
+
+.gridBtn {
+  border-right: 1px solid #dee2e7;
+}
+
+.activeView {
+  background: #eff2f4 !important;
+}
+
+/* Part 2: Products Container */
+.listViewContainer {
+  width: 920px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-sizing: border-box;
+}
+
+.productCard {
+  width: 920px;
+  background: #ffffff;
+  border: 1px solid #dee2e7;
+  border-radius: 6px;
+  padding: 20px;
+  display: flex;
+  gap: 24px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.imageSection {
+  /* width: 184px;
+  height: 184px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0; */
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.productImg {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.infoSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.productTitle {
+  font-size: 18px;
+  font-weight: 500;
+  color: #1c1c1c;
+  margin: 0 0 8px 0;
+}
+
+.priceRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.currentPrice {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1c1c1c;
+}
+
+.oldPrice {
+  font-size: 16px;
+  color: #8b96a5;
+  text-decoration: line-through;
+}
+
+.ratingMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #8b96a5;
+  margin-bottom: 12px;
+}
+
+.starsGroup {
+  display: flex;
+  align-items: center;
+  color: #ff9017;
+}
+
+.ratingValue {
+  margin-left: 6px;
+  color: #ff9017;
+}
+
+.dotSeparator {
+  color: #dee2e7;
+}
+
+.shippingText {
+  color: #00b517;
+}
+
+.description {
+  font-size: 16px;
+  color: #505050;
+  line-height: 24px;
+  margin: 0 0 16px 0;
+}
+
+.detailsBtn {
+  width: fit-content;
+  background: none;
+  border: none;
+  color: #0d7aff;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 0;
+  cursor: pointer;
+}
+
+.wishlistBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: #ffffff;
+  border: 1px solid #dee2e7;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Part 3: Pagination */
+.paginationRow {
+  width: 920px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  margin-top: 30px;
+  box-sizing: border-box;
+}
+
+.quantitySelect {
+  width: 125px; /* Exact size requested */
+  height: 40px;
+  border: 1px solid #dee2e7;
+  border-radius: 6px;
+  padding: 0 10px;
+  font-size: 16px;
+  background-color: #ffffff;
+}
+
+.paginationButtons {
+  display: flex;
+  border: 1px solid #dee2e7;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.numPageBtn, .arrowPageBtn {
+  width: 44px;
+  height: 40px;
+  background: #ffffff;
+  border: none;
+  border-right: 1px solid #dee2e7;
+  font-size: 16px;
+  color: #1c1c1c;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paginationButtons button:last-child {
+  border-right: none;
+}
+
+.activePage {
+  background: #eff2f4 !important;
+  font-weight: 600;
+}

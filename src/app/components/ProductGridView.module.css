@@ -1,0 +1,289 @@
+.mainWrapper {
+  width: 920px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* --- PART 1: Top Bar --- */
+.topBar {
+  width: 920px;
+  height: 62px;
+  background: #ffffff;
+  border: 1px solid #dee2e7;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.itemCount {
+  font-size: 16px;
+  color: #1c1c1c;
+}
+
+.boldText {
+  font-weight: 600;
+}
+
+.topBarActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.verifiedLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  color: #1c1c1c;
+  cursor: pointer;
+}
+
+.checkboxInput {
+  width: 20px;
+  height: 20px;
+  accent-color: #0d7aff;
+}
+
+.sortSelect {
+  width: 125px;
+  height: 40px;
+  border: 1px solid #dee2e7;
+  border-radius: 6px;
+  padding: 0 10px;
+  font-size: 16px;
+  color: #1c1c1c;
+  background-color: #fff;
+  outline: none;
+}
+
+.viewToggleGroup {
+  display: flex;
+  border: 1px solid #dee2e7;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.gridBtn, .listBtn {
+  width: 40px;
+  height: 40px;
+  background: #ffffff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #1c1c1c;
+}
+
+.gridBtn {
+  border-right: 1px solid #dee2e7;
+}
+
+.activeView {
+  background: #eff2f4 !important;
+}
+
+/* --- PART 2: Grid Container System (3 Cards per Row) --- */
+.gridViewContainer {
+  width: 920px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 20px; /* Space between grid cards */
+  box-sizing: border-box;
+}
+
+.gridCard {
+  background: #ffffff;
+  border: 1px solid #dee2e7;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column; /* Content flows top-to-bottom */
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  height: 405px; /* Standard square box feel */
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.gridCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.imageSection {
+  width: 100%;
+  height: 220px; /* Space reserved for product picture */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.productImg {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid #dee2e7;
+  margin: 0;
+  width: 100%;
+}
+
+.infoSection {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-grow: 1;
+}
+
+.priceRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.currentPrice {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1c1c1c;
+}
+
+.oldPrice {
+  font-size: 14px;
+  color: #8b96a5;
+  text-decoration: line-through;
+}
+
+.ratingMeta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.starsGroup {
+  color: #ff9017;
+  font-size: 14px;
+}
+
+.ratingValue {
+  font-size: 14px;
+  color: #ff9017;
+  font-weight: 500;
+}
+
+.productTitle {
+  font-size: 16px;
+  font-weight: 400;
+  color: #505050;
+  margin: 4px 0 0 0;
+  line-height: 22px;
+  /* Multi-line truncating if text is too long */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.wishlistBtn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  background: #ffffff;
+  border: 1px solid #dee2e7;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+}
+
+/* --- PART 3: Pagination Row --- */
+.paginationRow {
+  width: 920px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  margin-top: 30px;
+  box-sizing: border-box;
+}
+
+.quantitySelect {
+  width: 125px;
+  height: 40px;
+  border: 1px solid #dee2e7;
+  border-radius: 6px;
+  padding: 0 10px;
+  font-size: 16px;
+  background-color: #ffffff;
+  outline: none;
+}
+
+.paginationButtons {
+  display: flex;
+  border: 1px solid #dee2e7;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.numPageBtn, .arrowPageBtn {
+  width: 44px;
+  height: 40px;
+  background: #ffffff;
+  border: none;
+  border-right: 1px solid #dee2e7;
+  font-size: 16px;
+  color: #1c1c1c;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paginationButtons button:last-child {
+  border-right: none;
+}
+
+.activePage {
+  background: #eff2f4 !important;
+  font-weight: 600;
+}
+
+
+.viewDetailsBtn {
+  display: block;
+  width: 100%;
+  padding: 8px 16px;
+  background: none;
+  border: 1px solid #2f80ff;
+  color: #2f80ff;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.viewDetailsBtn:hover {
+  background: #2f80ff;
+  color: #fff;
+}

@@ -1,0 +1,129 @@
+.newsletterSection {
+  width: 100%;
+  max-width: 1440px;
+  height: 190px;
+  background-color: #f7f8fa;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+
+.container {
+  width: 100%;
+  max-width: 617px;
+  height: 113px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1c1c1c;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #606060;
+  margin: 0;
+  line-height: 1.4;
+}
+
+
+.formGroup {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+
+.inputWrapper {
+  position: relative;
+  width: 274px;
+  height: 40px;
+}
+
+.mailIcon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: #8b96a5;
+  pointer-events: none;
+}
+
+.inputField {
+  width: 100%;
+  height: 100%;
+  padding: 0 10px 0 36px;
+  border: 1px solid #dee2e7;
+  border-radius: 6px;
+  font-size: 16px;
+  color: #1c1c1c;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.inputField::placeholder {
+  color: #a9acb0;
+}
+
+.subscribeBtn {
+  width: 110px;
+  height: 40px;
+  background-color: #0d79ff;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 0 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.subscribeBtn:hover {
+  background-color: #0056b3;
+}
+
+
+@media (max-width: 650px) {
+  .newsletterSection {
+    height: auto;
+    padding: 30px 20px;
+  }
+
+  .container {
+    height: auto;
+    gap: 15px;
+  }
+
+  .formGroup {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .inputWrapper,
+  .subscribeBtn {
+    width: 100%;
+    max-width: 320px;
+  }
+}
