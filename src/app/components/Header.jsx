@@ -1,14 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
 import styles from './Header.module.css';
-import Image from 'next/image';
 
 const Header = () => {
   return (
   <>
   <nav className={styles.nb}>
     <div className={styles.brand}>
-      <Image src="/logo.png" alt="Brand" width={150} height={46} priority />
+      <Link href="/web-main">
+        <img src="/logo.png" alt="Brand" width={150} height={46} />
+      </Link>
     </div>
 
     <div className={styles.search}>
@@ -35,10 +36,10 @@ const Header = () => {
         <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z"/></svg>
         Orders
       </a>
-      <a href="#" className={styles.item}>
+      <Link href="/web-cart" className={styles.item}>
         <svg viewBox="0 0 24 24"><path d="M7 4h-2l-1 2 3 12h12l3-9H6"/><circle cx="9" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/></svg>
         My cart
-      </a>
+      </Link>
     </div>
   </nav>
 

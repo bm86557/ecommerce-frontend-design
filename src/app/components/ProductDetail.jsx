@@ -2,14 +2,15 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import styles from './ProductDetail.module.css';
-import { allProducts } from '../data/products.js';
+import { allProducts } from '../data/products';
 
 const ProductDetail = ({ productId }) => {
-  const product = allProducts.find(p => p.id === parseInt(productId));
+  const productIdNumber = Number(productId);
+  const product = allProducts.find(p => p.id === productIdNumber);
+  
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState('description');
-  const [addedToCart, setAddedToCart] = useState(false);
 
   if (!product) {
     return (
@@ -21,21 +22,6 @@ const ProductDetail = ({ productId }) => {
       </div>
     );
   }
-
-  const addToCart = () => {
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    const existingItem = cart.find(item => item.id === product.id);
-    
-    if (existingItem) {
-      existingItem.quantity += quantity;
-    } else {
-      cart.push({ ...product, quantity });
-    }
-    
-    localStorage.setItem('cart', JSON.stringify(cart));
-    setAddedToCart(true);
-    setTimeout(() => setAddedToCart(false), 2000);
-  };
 
   // Related products (excluding current product)
   const relatedProducts = allProducts.filter(p => p.id !== product.id).slice(0, 6);
@@ -128,9 +114,9 @@ const ProductDetail = ({ productId }) => {
           </div>
 
           <div className={styles.cartActions}>
-            <button onClick={addToCart} className={styles.addToCartBtn}>
-              {addedToCart ? '✓ Added to cart' : 'Add to cart'}
-            </button>
+            <Link href="/web-cart" className={styles.addToCartBtn}>
+              Add to cart
+            </Link>
             <Link href="/web-cart" className={styles.viewCartBtn}>
               View cart
             </Link>
