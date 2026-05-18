@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import Header from '../components/Header';
 import BreadCrumb from '../components/BreadCrumb';
 import Footer from '../components/Footer';
@@ -8,18 +9,33 @@ import { allProducts } from '../data/products';
 import styles from './web-cart.module.css';
 
 const CartPage = () => {
-  // Using products from data file
-  const cartItems = [
-    { ...allProducts[0], quantity: 2 }, // Soft chairs
-    { ...allProducts[1], quantity: 1 }, // Lamp
-    { ...allProducts[8], quantity: 1 }, // Cameras
-  ];
+  // Get product ID from URL (e.g., /web-cart?id=1)
+  const searchParams = useSearchParams();
+  const productId = searchParams.get('id');
+  
+  // If product ID exists in URL, show that product in cart
+  let cartItems = [];
+  if (productId) {
+    const product = allProducts.find(p => p.id === Number(productId));
+    if (product) {
+      cartItems = [{ ...product, quantity: 1 }];
+    }
+  } else {
+    // Default cart items if no product ID in URL
+    cartItems = [
+      { ...allProducts[0], quantity: 2 }, // Soft chairs
+      { ...allProducts[1], quantity: 1 }, // Lamp
+      { ...allProducts[8], quantity: 1 }, // Cameras
+    ];
+  }
 
+  // Saved items (always same)
   const savedItems = [
     allProducts[3], // Smart watches
     allProducts[9], // Headphones
   ];
 
+  // Calculate total price
   const subtotal = cartItems.reduce((sum, item) => {
     const price = parseFloat(item.price.replace('$', ''));
     return sum + (price * item.quantity);
@@ -59,10 +75,7 @@ const CartPage = () => {
                 <div className={styles.itemPrice}>
                   <p className={styles.price}>{item.price}</p>
                   <div className={styles.quantityControl}>
-                    <label>Qty:</label>
-                    <select value={item.quantity} className={styles.qtySelect}>
-                      {[1,2,3,4,5,6,7,8,9].map(n => <option key={n} value={n}>{n}</option>)}
-                    </select>
+                    <label>Qty: {item.quantity}</label>
                   </div>
                 </div>
               </div>

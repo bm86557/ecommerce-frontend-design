@@ -9,7 +9,6 @@ const ProductDetail = ({ productId }) => {
   const product = allProducts.find(p => p.id === productIdNumber);
   
   const [selectedImage, setSelectedImage] = useState(0);
-  const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState('description');
 
   if (!product) {
@@ -114,7 +113,7 @@ const ProductDetail = ({ productId }) => {
           </div>
 
           <div className={styles.cartActions}>
-            <Link href="/web-cart" className={styles.addToCartBtn}>
+            <Link href={`/web-cart?id=${product.id}`} className={styles.addToCartBtn}>
               Add to cart
             </Link>
             <Link href="/web-cart" className={styles.viewCartBtn}>
