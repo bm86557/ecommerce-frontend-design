@@ -44,7 +44,7 @@ const ProductListView = () => {
         {allProducts.map((product) => (
           <div key={product.id} className={styles.productCard}>
             <div className={styles.imageSection}>
-              <img src={product.img} alt={product.title} className={product.productImg} />
+              <img src={product.img} alt={product.title} className={styles.productImg} />
             </div>
             
             <div className={styles.infoSection}>
