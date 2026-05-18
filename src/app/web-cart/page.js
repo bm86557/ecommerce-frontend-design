@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import React, { Suspense } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import Header from '../components/Header';
@@ -8,8 +8,8 @@ import Footer from '../components/Footer';
 import { allProducts } from '../data/products';
 import styles from './web-cart.module.css';
 
-const CartPage = () => {
-  // Get product ID from URL (e.g., /web-cart?id=1)
+// Separate component for cart content that uses useSearchParams
+function CartContent() {
   const searchParams = useSearchParams();
   const productId = searchParams.get('id');
   
@@ -46,15 +46,7 @@ const CartPage = () => {
   const total = subtotal - discount + tax;
 
   return (
-    <div style={{background: '#F7FAFC', minHeight: '100vh'}}>
-      <Header />
-      <BreadCrumb 
-        items={[
-          { label: 'Home', href: '/web-main' },
-          { label: 'My cart', href: '/web-cart' }
-        ]} 
-      />
-      
+    <>
       <div className={styles.container}>
         <div className={styles.mainContent}>
           <div className={styles.cartSection}>
@@ -172,7 +164,23 @@ const CartPage = () => {
           </div>
         </div>
       </div>
+    </>
+  );
+}
 
+const CartPage = () => {
+  return (
+    <div style={{background: '#F7FAFC', minHeight: '100vh'}}>
+      <Header />
+      <BreadCrumb 
+        items={[
+          { label: 'Home', href: '/web-main' },
+          { label: 'My cart', href: '/web-cart' }
+        ]} 
+      />
+      <Suspense fallback={<div>Loading...</div>}>
+        <CartContent />
+      </Suspense>
       <Footer />
     </div>
   );
